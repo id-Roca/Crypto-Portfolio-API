@@ -157,3 +157,35 @@ Example: `GET /assets/BTC/price`
 | Method | Endpoint | Description |
 |---|---|---|
 | GET | `/portfolio` | Retrieve current cryptocurrency holdings and total portfolio value in EUR |
+
+## MongoDB vs. PostgreSQL
+
+| Feature | PostgreSQL | MongoDB |
+|---|---|---|
+| Database type | Relational (SQL) | Document-oriented (NoSQL) |
+| Data storage | Tables | Collections |
+| Individual records | Rows | Documents |
+| Data structure | Columns defined by a schema | Fields in BSON documents |
+| Schema | Typically predefined and enforced | Flexible; validation can be added |
+| Primary key | Usually `id` | Usually `_id` |
+| Relationships | Foreign keys and JOINs | References or embedded documents |
+| Query language | SQL | MongoDB Query Language (MQL) |
+| Transactions | Supports ACID transactions | Supports ACID transactions, including multi-document transactions |
+| Node.js integration | Prisma, `pg`, etc. | Mongoose, MongoDB Node.js driver |
+| Data validation | Database constraints | MongoDB schema validation and/or Mongoose validation |
+| Best suited for | Structured data with complex relationships | Flexible document structures and document-oriented applications |
+
+### Key Concepts
+
+- **MongoDB** is the database system.
+- **Mongoose** is an ODM (Object Document Mapper) for Node.js.
+- **Schema:** Defines the structure and validation rules of documents in Mongoose.
+- **Model:** Provides methods to interact with a MongoDB collection.
+- **Collection:** A group of related documents, similar to a PostgreSQL table.
+- **Document:** A single record stored in BSON format, similar to a PostgreSQL row.
+
+### Why MongoDB for the Crypto Portfolio API?
+
+MongoDB was chosen primarily as a learning opportunity to gain experience with a NoSQL database and Mongoose.
+
+The project will use three main models: `User`, `Asset`, and `Transaction`, with references between related documents.
